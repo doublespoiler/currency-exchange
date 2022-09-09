@@ -14,7 +14,11 @@ async function fromUSD(targetCode, amount){
 }
 
 function printElements(response, targetCode, amount){
-  console.log("success!");
+  document.querySelector("#input-amount").innerText = amount;
+  document.querySelector("#output-amount").innerText = response.conversion_result;
+  document.querySelector("#code-output").innerText = targetCode;
+  document.querySelector("#conversion-rate").innerText = response.conversion_rate;
+  document.querySelector("#result-div").setAttribute("class", "");
 }
 
 function printError(error, targetCode){
@@ -38,14 +42,16 @@ function handleFormSubmission(event){
 document.querySelector('form').addEventListener("submit", handleFormSubmission);
 
 //utility
-const radio = document.querySelectorAll("input[name='option']");
+const radio = document.querySelectorAll("input[name='target-code']");
 
 for(let i = 0;i< radio.length;i++){
   radio[i].onclick = function(){
     if(this.id == "other"){
-      document.getElementById('otherText').setAttribute("required", true);
+      document.getElementById("other-text").setAttribute("required", true);
+      document.getElementById("other-req").setAttribute("class", "text-danger");
     }else{
-      document.getElementById('otherText').removeAttribute("required");
+      document.getElementById("other-text").removeAttribute("required");
+      document.getElementById("other-req").setAttribute("class", "hidden");
     }
-  }
+  };
 }
