@@ -15,18 +15,20 @@ async function fromUSD(targetCode, amount){
 
 function printElements(response, targetCode, amount){
   document.querySelector("#input-amount").innerText = amount;
-  document.querySelector("#output-amount").innerText = response.conversion_result;
+  document.querySelector("#output-amount").innerText = response.conversion_result.toFixed(2);
   document.querySelector("#code-output").innerText = targetCode;
   document.querySelector("#conversion-rate").innerText = response.conversion_rate;
   document.querySelector("#result-div").setAttribute("class", "");
 }
 
 function printError(error, targetCode){
-  console.log("error!");
+  console.log("error found!" + error);
+  document.querySelector("#error-result").innerText = `There was an error converting to ${targetCode}: ${error}.`;
 }
 
 function handleFormSubmission(event){
   event.preventDefault();
+  resetResult();
   let targetCode = document.querySelector("input[name='target-code']:checked");
   if (targetCode.id === "other"){
     const customCode = document.querySelector("#other-text").value;
@@ -54,4 +56,13 @@ for(let i = 0;i< radio.length;i++){
       document.getElementById("other-req").setAttribute("class", "hidden");
     }
   };
+}
+
+function resetResult(){
+  document.querySelector("#input-amount").innerText = "";
+  document.querySelector("#output-amount").innerText = "";
+  document.querySelector("#code-output").innerText = "";
+  document.querySelector("#conversion-rate").innerText = "";
+  document.querySelector("#result-div").setAttribute("class", "hidden");
+  document.querySelector("#error-result").innerText = `* = Required`;
 }

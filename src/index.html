@@ -6,26 +6,29 @@
 </head>
 <body>
   <h1>Currency Converter</h1>
-  <form id="convert-form">
-    <label for="amount">Amount in USD:</label>
-    <input type="number" id="amount" name="amount" required> <span class="text-danger">*</span><br>
-    <input type="radio" id="CNY" name="target-code" value="CNY">
-    <label for="CNY">Chinese Yuan (RMB/CNY)</label><br>
-    <input type="radio" id="EUR" name="target-code" value="EUR">
-    <label for="EUR">Euro (EUR)</label><br>
-    <input type="radio" id="GBP" name="target-code" value="GBP">
-    <label for="GBP">Great British Pound (GBP)</label><br>
-    <input type="radio" id="JPY" name="target-code" value="JPY">
-    <label for="JPY">Japanese Yen (JPY)</label><br>
-    <input type="radio" id="other" name="target-code" value="">
-    <label for="other">Other</label>
-    <input type="text" id="other-text" name="other-text" maxLength="3"> <span class="hidden" id="other-req">*</span><br>
-    <button type="submit" id="submit-button">Submit</button>
-  </form>
+  <div id="form-div">
+    <form id="convert-form">
+      <label for="amount">Amount in USD:</label>
+      <input type="number" id="amount" name="amount" required> <span class="text-danger">*</span><br>
+      <input type="radio" id="CNY" name="target-code" value="CNY">
+      <label for="CNY">Chinese Yuan (RMB/CNY)</label><br>
+      <input type="radio" id="EUR" name="target-code" value="EUR">
+      <label for="EUR">Euro (EUR)</label><br>
+      <input type="radio" id="GBP" name="target-code" value="GBP">
+      <label for="GBP">Great British Pound (GBP)</label><br>
+      <input type="radio" id="JPY" name="target-code" value="JPY">
+      <label for="JPY">Japanese Yen (JPY)</label><br>
+      <input type="radio" id="other" name="target-code" value="">
+      <label for="other">Other</label>
+      <input type="text" id="other-text" name="other-text" maxLength="3"> <span class="hidden" id="other-req">*</span><br>
+      <button type="submit" id="submit-button">Submit</button>     <span id="error-result" class="text-danger">* = Required</span> 
+    </form>
+
+  </div>
   <div id="result-div" class="hidden">
-    <p><span id="error-result"></span></p>
+    
     <p><span id="input-amount"></span> USD is <span id="output-amount"></span> <span id="code-output"></span>.</p>
-    <p>The conversion rate is <span id="conversion-rate"></span>.</p>
+    <p>The conversion rate is 1:<span id="conversion-rate"></span>.</p>
   </div>
   <div id="footer">Conversion provided by <a href="https://www.exchangerate-api.com/" class="normal-link">https://www.exchangerate-api.com/</a></div>
 </body>
