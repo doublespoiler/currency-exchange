@@ -20,7 +20,7 @@ function printElements(response, targetCode, amount){
   document.querySelector("#output-amount").innerText = outputCents.toLocaleString("en-US");
   document.querySelector("#code-output").innerText = targetCode;
   document.querySelector("#conversion-rate").innerText = response.conversion_rate;
-  document.querySelector("#result-div").setAttribute("class", "");
+  document.querySelector("#result-div").classList.remove("hidden");
 }
 
 function printError(error, targetCode){
@@ -48,7 +48,7 @@ document.querySelector('form').addEventListener("submit", handleFormSubmission);
 //utility
 const radio = document.querySelectorAll("input[name='target-code']");
 
-for(let i = 0;i< radio.length;i++){
+for(let i = 0;i< radio.length;i++){ //I'm not sure if this is where I'm supposed to put a function like this, but the app works.
   radio[i].onclick = function(){
     if(this.id == "other"){
       document.getElementById("other-text").setAttribute("required", true);
@@ -65,6 +65,6 @@ function resetResult(){
   document.querySelector("#output-amount").innerText = "";
   document.querySelector("#code-output").innerText = "";
   document.querySelector("#conversion-rate").innerText = "";
-  document.querySelector("#result-div").setAttribute("class", "hidden");
+  document.querySelector("#result-div").classList.add("hidden");
   document.querySelector("#error-result").innerText = `* = Required`;
 }
