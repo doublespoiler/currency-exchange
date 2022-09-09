@@ -9,18 +9,18 @@
   <form id="convert-form">
     <label for="amount">Amount:</label>
     <input type="number" id="amount" name="amount" required><br>
-    <input type="radio" id="CNY" name="target-code" value="CNY" >
+    <input type="radio" id="CNY" name="target-code" value="CNY">
     <label for="CNY">Chinese Yuan (RMB/CNY)</label><br>
-    <input type="radio" id="EUR" name="target-code" value="EUR" >
+    <input type="radio" id="EUR" name="target-code" value="EUR">
     <label for="EUR">Euro (EUR)</label><br>
-    <input type="radio" id="GBP" name="target-code" value="GBP" >
+    <input type="radio" id="GBP" name="target-code" value="GBP">
     <label for="GBP">Great British Pound (GBP)</label><br>
-    <input type="radio" id="JPY" name="target-code" value="JPY" >
+    <input type="radio" id="JPY" name="target-code" value="JPY">
     <label for="JPY">Japanese Yen (JPY)</label><br>
-    <input type="radio" id="other-target" name="target-code" value="">
+    <input type="radio" id="other" name="target-code" value="">
     <label for="other-target">Other</label>
-    <input type="text" id="other-text" name="target-code" maxLength="3">
+    <input type="text" id="other-text" name="other-text" maxLength="3">
+    <button type="submit" id="submit-button">Submit</button>
   </form>
-  <script type="text/javascript" src="bundle.js"></script>
 </body>
 </html>
