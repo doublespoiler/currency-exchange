@@ -5,7 +5,6 @@ import Convert from './js/convert.js';
 
 async function fromUSD(targetCode, amount){
   const response = await Convert.fromUSD(targetCode, amount);
-  console.log(response);
   if(response.result === "success"){
     printElements(response, targetCode, amount);
   } else {
@@ -24,7 +23,6 @@ function printElements(response, targetCode, amount){
 }
 
 function printError(error, targetCode){
-  console.log("error found!" + error);
   document.querySelector("#error-result").innerText = `Cannot convert to ${targetCode}: ${error}.`;
 }
 
@@ -35,11 +33,17 @@ function handleFormSubmission(event){
   if (targetCode.id === "other"){
     const customCode = document.querySelector("#other-text").value;
     targetCode = customCode.toUpperCase();
+    if (targetCode === "RMB"){
+      targetCode = "CNY";
+      document.querySelector("#error-result").innerText = "* Using CNY instead of RMB";
+    } else if (parseInt(targetCode)){
+      printError("Not a 3 letter Currency Code", targetCode);
+      return;
+    }
   } else {
     targetCode = targetCode.value;
   }
   const amount = document.querySelector("#amount").value;
-  console.log("target" + targetCode + " amount " + amount );
   fromUSD(targetCode, amount);
 }
 
@@ -67,8 +71,11 @@ function hideHelp(){
 function setToOther(){
   let currentChecked = document.querySelector("input:checked");
   const other = document.querySelector("#other");
-  currentChecked.checked  = false;
+  if(currentChecked){
+    currentChecked.checked  = false;
+  }
   other.checked = true;
+  document.getElementById("other-req").setAttribute("class", "text-danger");
 }
 
 document.querySelector('form').addEventListener("submit", handleFormSubmission);
