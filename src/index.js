@@ -25,7 +25,7 @@ function printElements(response, targetCode, amount){
 
 function printError(error, targetCode){
   console.log("error found!" + error);
-  document.querySelector("#error-result").innerText = `There was an error converting to ${targetCode}: ${error}.`;
+  document.querySelector("#error-result").innerText = `Cannot convert to ${targetCode}: ${error}.`;
 }
 
 function handleFormSubmission(event){
@@ -43,7 +43,38 @@ function handleFormSubmission(event){
   fromUSD(targetCode, amount);
 }
 
+function resetResult(){
+  document.querySelector("#input-amount").innerText = "";
+  document.querySelector("#output-amount").innerText = "";
+  document.querySelector("#code-output").innerText = "";
+  document.querySelector("#conversion-rate").innerText = "";
+  document.querySelector("#result-div").classList.add("hidden");
+  document.querySelector("#error-result").innerText = `* = Required`;
+}
+
+function showHelp(){
+  document.querySelector("#over-div").classList.remove("hidden");
+  document.querySelector("#help-button").removeEventListener("click", showHelp);
+  document.querySelector("#help-button").addEventListener("click", hideHelp);
+}
+
+function hideHelp(){
+  document.querySelector("#over-div").classList.add("hidden");
+  document.querySelector("#help-button").removeEventListener("click", hideHelp);
+  document.querySelector("#help-button").addEventListener("click", showHelp);
+}
+
+function setToOther(){
+  if(document.querySelector("input[name='target-code']:checked")){
+    document.querySelector("input[name='target-code']:checked").setAttribute("checked", false);
+  }
+  document.querySelector("#other").setAttribute("checked", true);
+}
+
 document.querySelector('form').addEventListener("submit", handleFormSubmission);
+document.querySelector("#help-button").addEventListener("click", showHelp);
+document.querySelector("#close-button").addEventListener("click", hideHelp);
+document.querySelector('#other-text').addEventListener("input", setToOther);
 
 //utility
 const radio = document.querySelectorAll("input[name='target-code']");
@@ -60,11 +91,3 @@ for(let i = 0;i< radio.length;i++){ //I'm not sure if this is where I'm supposed
   };
 }
 
-function resetResult(){
-  document.querySelector("#input-amount").innerText = "";
-  document.querySelector("#output-amount").innerText = "";
-  document.querySelector("#code-output").innerText = "";
-  document.querySelector("#conversion-rate").innerText = "";
-  document.querySelector("#result-div").classList.add("hidden");
-  document.querySelector("#error-result").innerText = `* = Required`;
-}
