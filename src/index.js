@@ -14,8 +14,10 @@ async function fromUSD(targetCode, amount){
 }
 
 function printElements(response, targetCode, amount){
-  document.querySelector("#input-amount").innerText = amount;
-  document.querySelector("#output-amount").innerText = response.conversion_result.toFixed(2);
+  const inputCents =  parseFloat(amount).toFixed(2);
+  const outputCents = response.conversion_result.toFixed(2);
+  document.querySelector("#input-amount").innerText = inputCents.toLocaleString("en-US");
+  document.querySelector("#output-amount").innerText = outputCents.toLocaleString("en-US");
   document.querySelector("#code-output").innerText = targetCode;
   document.querySelector("#conversion-rate").innerText = response.conversion_rate;
   document.querySelector("#result-div").setAttribute("class", "");
