@@ -1,3 +1,48 @@
 .hidden {
   display: none;
 }
+
+.container {
+  margin: auto;
+  margin-top: 1rem;
+  border: 5px ridge grey;
+}
+
+#over-div {
+  z-index: 10;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  border: 2px solid black;
+  float:left;
+  position: absolute;
+  height: 300px;
+  width: -moz-fit-content; /*for Firefox */ 
+  width: fit-content;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background-color: white;
+  text-align: center;
+}
+
+#over-header{
+  justify-content:space-between;
+  text-align: center;
+  width:auto;
+}
+
+#close-button{
+  float:right;
+  position: fixed;
+  padding-left:1em;
+}
+
+#codes-table{
+  margin-top: 2rem;
+}
+
+#footer {
+  text-align: center;
+
+}
