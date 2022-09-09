@@ -197,8 +197,9 @@
         <label for="JPY">Japanese Yen (JPY)</label><br>
         <input type="radio" id="other" name="target-code" value="">
         <label for="other">3-letter Code <sup id="help-button">help</sup></label>
-        <input type="text" id="other-text" name="other-text" maxLength="3"> <span class="hidden" id="other-req">*</span><br>
-        <button type="submit" id="submit-button">Submit</button>     <p id="error-result" class="text-danger">* = Required</p> 
+        <input type="text" id="other-text" name="other-text" maxLength="3" minLength="3"> <span class="hidden" id="other-req">*</span><br>
+        <button type="submit" id="submit-button">Submit</button>
+        <p id="error-result" class="text-danger">* = Required</p> 
       </form>
     </div>
     <div id="result-div" class="col-md-6 hidden">
