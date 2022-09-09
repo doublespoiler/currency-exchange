@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <title>Currency Converter</title>
 </head>
 <body>
@@ -10,9 +9,7 @@
   <div id="over-div" class="hidden">
     <div id="close-button">close</div>
     <div id="over-header">
-      
       <div><h3>Supported Codes</h3></div>
-      
     </div>
     <table id="codes-table"> <!--copied this table from https://www.exchangerate-api.com/docs/supported-currencies. I could format differently, but since the table is so long, it's easier to read like this. Thinking about getting Monokai Pro, though, becuase all those angle brackets make it hard to read.-->
       <tr id="table-header"><td width="160px"><h6>Currency Code</h6></td><td width="250px"><h6>Currency Name</h6></td><td><h6>Country</h6></td></tr>
@@ -177,10 +174,9 @@
       <tr><td>ZAR</td><td>South African Rand</td><td>South Africa</td></tr>
       <tr><td>ZMW</td><td>Zambian Kwacha</td><td>Zambia</td></tr>
       <tr><td>ZWL</td><td>Zimbabwean Dollar</td><td>Zimbabwe</td></tr>
-      </table>
+    </table>
   </div>
   <div id="header-div" class="row">
-    
     <div class="col-md-12">
       <h1>Currency Converter</h1> 
     </div>
@@ -200,9 +196,9 @@
         <input type="radio" id="JPY" name="target-code" value="JPY">
         <label for="JPY">Japanese Yen (JPY)</label><br>
         <input type="radio" id="other" name="target-code" value="">
-        <label for="other">Other</label>
+        <label for="other">3-letter Code <sup id="help-button">help</sup></label>
         <input type="text" id="other-text" name="other-text" maxLength="3"> <span class="hidden" id="other-req">*</span><br>
-        <button type="button" id="help-button">Help</button> <button type="submit" id="submit-button">Submit</button>     <span id="error-result" class="text-danger">* = Required</span> 
+        <button type="submit" id="submit-button">Submit</button>     <p id="error-result" class="text-danger">* = Required</p> 
       </form>
     </div>
     <div id="result-div" class="col-md-6 hidden">

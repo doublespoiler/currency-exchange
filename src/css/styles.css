@@ -44,5 +44,12 @@
 
 #footer {
   text-align: center;
+}
 
+#header-div {
+  text-align: center;
+}
+
+#help-button{
+  display:inline;
 }
