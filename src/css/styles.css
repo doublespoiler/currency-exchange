@@ -5,7 +5,9 @@
 .container {
   margin: auto;
   margin-top: 1rem;
-  border: 5px ridge grey;
+  border: 8px double #435e33;
+  background-color:#85bb65;
+  color: #2a3c20;
 }
 
 #over-div {
@@ -44,10 +46,21 @@
 
 #footer {
   text-align: center;
+  background-color: #435e33;
+  margin-left: -1em;
+  margin-right: -1em;
+  color: #131c0f;
+}
+
+#footer a{
+  color: #131c0f;
 }
 
 #header-div {
   text-align: center;
+  background-color: #435e33;
+  color: #131c0f;
+  margin-bottom: 1em;
 }
 
 #help-button{
