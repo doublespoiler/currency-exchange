@@ -65,16 +65,16 @@ function hideHelp(){
 }
 
 function setToOther(){
-  if(document.querySelector("input[name='target-code']:checked")){
-    document.querySelector("input[name='target-code']:checked").setAttribute("checked", false);
-  }
-  document.querySelector("#other").setAttribute("checked", true);
+  let currentChecked = document.querySelector("input:checked");
+  const other = document.querySelector("#other");
+  currentChecked.checked  = false;
+  other.checked = true;
 }
 
 document.querySelector('form').addEventListener("submit", handleFormSubmission);
 document.querySelector("#help-button").addEventListener("click", showHelp);
 document.querySelector("#close-button").addEventListener("click", hideHelp);
-document.querySelector('#other-text').addEventListener("input", setToOther);
+document.querySelector('#other-text').addEventListener("click", setToOther);
 
 //utility
 const radio = document.querySelectorAll("input[name='target-code']");
