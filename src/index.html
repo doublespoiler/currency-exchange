@@ -183,10 +183,10 @@
   </div>
 
   <div class="row content-row">
-    <div id="form-div" class="col-md-4">
+    <div id="form-div" class="col-md-6">
       <form id="convert-form">
         <label for="amount">Amount in USD:</label>
-        <input type="number" id="amount" name="amount" required> <span class="text-danger">*</span><br>
+        <input type="number" id="amount" name="amount" step="0.01" required> <span class="text-danger">*</span><br>
         <input type="radio" id="CNY" name="target-code" value="CNY">
         <label for="CNY">Chinese Yuan (RMB/CNY)</label><br>
         <input type="radio" id="EUR" name="target-code" value="EUR">
@@ -202,7 +202,7 @@
         <p id="error-result" class="text-danger">* = Required</p> 
       </form>
     </div>
-    <div id="result-div" class="col-md-4 hidden">
+    <div id="result-div" class="col-md-6 hidden">
       <p><span id="input-amount"></span> USD is <span id="output-amount"></span> <span id="code-output"></span>.</p>
       <p>The conversion rate is 1:<span id="conversion-rate"></span>.</p>
     </div>
