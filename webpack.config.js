@@ -5,10 +5,13 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: path.resolve(__dirname, 'src') + '/index.js',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
+  },
+  resolve: {
+    extensions: ['.js']
   },
   devServer: {
     contentBase: './dist'
@@ -20,7 +23,7 @@ module.exports = {
       verbose: true
     }), 
     new HtmlWebpackPlugin({
-      title: 'Shape Tracker',
+      title: 'Currency Converter',
       template: './src/index.html',
       inject: 'body'
     }),
