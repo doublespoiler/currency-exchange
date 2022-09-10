@@ -37,7 +37,7 @@ It can be used over and over again for the same or different values until API ca
 * Tested on Node 16.16.0
 
 ### Visit the Site
-
+[https://medical-religion.surge.sh/](https://medical-religion.surge.sh/)
 ### Build Yourself
 
 * Clone `git clone https://github.com/doublespoiler/currency-exchange`
